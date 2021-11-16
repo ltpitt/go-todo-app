@@ -15,7 +15,7 @@ limitations under the License.
 */
 package main
 
-import "github.com/ltpitt/tri/cmd"
+import "github.com/ltpitt/go-todo-app/cmd"
 
 func main() {
 	cmd.Execute()
