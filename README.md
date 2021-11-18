@@ -8,8 +8,8 @@ I am currently at slide 159.
 
 The steps to scaffold a cli tool in go:
 - ```go get github.com/spf13/cobra```
+- ```go get github.com/spf13/viper``` 
 - ```cobra init --pkg-name github.com/ltpitt/go-todo-app -a ltpitt```
 - ```go mod init github.com/ltpitt/go-todo-app```
-- ```go get github.com/spf13/viper```
 - ```go build```
 - ```tri.exe``` or ```./tri```
