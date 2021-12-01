@@ -18,6 +18,7 @@ package cmd
 import (
 	"fmt"
 
+	"github.com/ltpitt/go-todo-app/todo"
 	"github.com/spf13/cobra"
 )
 
@@ -46,7 +47,6 @@ func init() {
 func addRun(cmd *cobra.Command, args []string) {
 	items := []todo.Item{}
 	for _, x := range args {
-		fmt.Println(x)
 		items = append(items, todo.Item{Text: x})
 	}
 	fmt.Println(items)
