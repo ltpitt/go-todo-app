@@ -25,8 +25,8 @@ import (
 var addCmd = &cobra.Command{
 	Use:   "add",
 	Short: "Add a new todo",
-	Long: `Add will create a new todo item to the list`,
-	Run: addRun,
+	Long:  `Add will create a new todo item to the list`,
+	Run:   addRun,
 }
 
 func init() {
@@ -44,9 +44,10 @@ func init() {
 }
 
 func addRun(cmd *cobra.Command, args []string) {
-		// TODO: Add the add code here
-		fmt.Println("add called")
-		for _, x := range args {
-			fmt.Println(x)
-		}
+	items := []todo.Item{}
+	for _, x := range args {
+		fmt.Println(x)
+		items = append(items, todo.Item{Text: x})
+	}
+	fmt.Println(items)
 }
