@@ -1,7 +1,9 @@
 # go-todo-app
-A todo cli app, made in go
+A todo cli app, made in Golang.
 
-The result of me learning to code my first cli tool in go, following the tutorial here:  
+I have written this repo in order to get rid of endless "todo_something.txt" files and learn some Go.
+
+So the go-todo-app was born, I am making it following the interesting tutorial I found here:  
 https://spf13.com/presentation/building-an-awesome-cli-app-in-go-oscon/
 
 I am currently at slide 224.
