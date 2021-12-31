@@ -4,7 +4,7 @@ A todo cli app, made in go
 The result of me learning to code my first cli tool in go, following the tutorial here:  
 https://spf13.com/presentation/building-an-awesome-cli-app-in-go-oscon/
 
-I am currently at slide 210.
+I am currently at slide 224.
 
 The steps to scaffold a cli tool in go:
 - ```go get github.com/spf13/cobra```
