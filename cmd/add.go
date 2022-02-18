@@ -16,8 +16,7 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
-
+	"log"
 	"github.com/ltpitt/go-todo-app/todo"
 	"github.com/spf13/cobra"
 )
@@ -45,15 +44,16 @@ func init() {
 }
 
 func addRun(cmd *cobra.Command, args []string) {
-	items := []todo.Item{}
+	items, err := todo.ReadItems("todo.json")
 	for _, x := range args {
 		items = append(items, todo.Item{Text: x})
 	}
-
-	err := todo.SaveItems("todo.json", items)
 	if err != nil {
-		fmt.Errorf("%v", err)
+		log.Printf("%v", err)
 	}
 
-	todo.SaveItems("x", items)
+	errSave := todo.SaveItems("todo.json", items)
+	if errSave != nil {
+		log.Printf("%v", err)
+	}
 }
