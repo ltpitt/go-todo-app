@@ -6,7 +6,7 @@ I have written this repo in order to get rid of endless "todo_something.txt" fil
 So the go-todo-app was born, I am making it following the interesting tutorial I found here:  
 https://spf13.com/presentation/building-an-awesome-cli-app-in-go-oscon/
 
-I am currently at slide 250.
+I am currently at slide 273.
 
 The steps to scaffold a cli tool in go:
 - ```go get github.com/spf13/cobra```
