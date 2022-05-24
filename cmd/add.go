@@ -49,7 +49,9 @@ func init() {
 func addRun(cmd *cobra.Command, args []string) {
 	items, err := todo.ReadItems(dataFile)
 	for _, x := range args {
-		items = append(items, todo.Item{Text: x})
+		item := todo.Item{Text: x}
+		item.SetPriority(priority)
+		items = append(items, item)
 	}
 	if err != nil {
 		log.Printf("%v", err)
