@@ -18,6 +18,7 @@ package cmd
 import (
 	"fmt"
 	"log"
+	"text/tabwriter"
 
 	"github.com/ltpitt/go-todo-app/todo"
 	"github.com/spf13/cobra"
@@ -40,6 +41,11 @@ to quickly create a Cobra application.`,
 		}
 		fmt.Println(items)
 	},
+}
+
+func listRun(cmd *cobra.Command, args []string) {
+	w := tabwriter.NewWriter(os.Std, 3, 0, 1, '', 0)
+    
 }
 
 func init() {
