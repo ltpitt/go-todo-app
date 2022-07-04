@@ -6,7 +6,7 @@ import (
 )
 
 type Item struct {
-	Text string
+	Text     string
 	Priority int
 }
 
