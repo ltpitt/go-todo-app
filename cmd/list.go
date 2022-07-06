@@ -19,7 +19,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"strconv"
 	"text/tabwriter"
 
 	"github.com/ltpitt/go-todo-app/todo"
@@ -30,8 +29,8 @@ import (
 var listCmd = &cobra.Command{
 	Use:   "list",
 	Short: "List the todos",
-	Long: `Listing the todos.`,
-	Run: listRun,
+	Long:  `Listing the todos.`,
+	Run:   listRun,
 }
 
 func listRun(cmd *cobra.Command, args []string) {
@@ -41,13 +40,12 @@ func listRun(cmd *cobra.Command, args []string) {
 		log.Printf("%v", err)
 	}
 
-
 	w := tabwriter.NewWriter(os.Stdout, 3, 0, 1, ' ', 0)
 	for _, i := range items {
-		fmt.Fprintln(w, strconv.Itoa(i.Priority) + "\t" + i.Text + "\t")
+		fmt.Fprintln(w, i.PrettyP()+"\t"+i.Text+"\t")
 	}
 	w.Flush()
-    
+
 }
 
 func init() {
