@@ -3,11 +3,17 @@ package todo
 import (
 	"encoding/json"
 	"io/ioutil"
+	"strconv"
 )
 
 type Item struct {
 	Text     string
 	Priority int
+	position int
+}
+
+func (i *Item) Label() string {
+	return strconv.Itoa(i.position) + "."
 }
 
 func (i *Item) SetPriority(pri int) {
@@ -44,11 +50,14 @@ func SaveItems(filename string, items []Item) error {
 func ReadItems(filename string) ([]Item, error) {
 	b, err := ioutil.ReadFile(filename)
 	if err != nil {
-		return []Item{}, nil
+		return nil, err
 	}
 	var items []Item
 	if err := json.Unmarshal(b, &items); err != nil {
-		return []Item{}, err
+		return []Item{}, nil
+	}
+	for i := range items {
+		items[i].position = i + 1
 	}
 	return items, nil
 }
