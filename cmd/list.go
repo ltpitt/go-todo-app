@@ -17,12 +17,12 @@ package cmd
 
 import (
 	"fmt"
-	"log"
-	"os"
-	"text/tabwriter"
-
 	"github.com/ltpitt/go-todo-app/todo"
 	"github.com/spf13/cobra"
+	"log"
+	"os"
+	"sort"
+	"text/tabwriter"
 )
 
 // listCmd represents the list command
@@ -40,6 +40,7 @@ func listRun(cmd *cobra.Command, args []string) {
 		log.Printf("%v", err)
 	}
 
+	sort.Sort(todo.ByPri(items))
 	w := tabwriter.NewWriter(os.Stdout, 3, 0, 1, ' ', 0)
 	for _, i := range items {
 		fmt.Fprintln(w, i.Label(), "\t"+i.Text+"\t", i.PrettyP())
